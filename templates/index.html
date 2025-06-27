@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Welcome - VTC</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h3 style="font-weight: bold; font-size: 1.5rem;">VTC</h3>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About us</a></li>
+                <li><a href="{{ url_for('faq_page') }}">FAQ</a></li>
+                <li><a href="#help">Help</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="home">
+        <h1 class="main-title">
+            <span>Visionary</span>
+            <span>Text</span>
+            <span>Converter</span>
+        </h1>
+        <img src="../static/images/cover.png" alt="Cover Image" class="cover-image">
+        <h3 class="intro">Turn your scibbles into magic!</h3>
+        
+        <div class="intro-text">
+            <p class="para1">
+            Transform your handwritten notes and digital text into editable magic in just a few clicks! Upload images, enjoy features like text-to-speech, translations, document export, and more. Ready for the fun? Hit ‘Get Started’ and let’s go!
+            </p>
+        </div>
+        <button class="start">
+            <a href="{{ url_for('choose_page') }}">Get Started!</a>
+        </button>
+    </section>
+
+    <section class="feature-section"id="features" >
+        <div class="feature-image">
+            <img src="../static/images/hear it.png" alt="Feature Image">
+        </div>
+        <div class="feature-text">
+            <h2 class="ftitle">Why read, when you can <span class="highlight">listen?</span></h2>
+            <p class="fdesc">Let us do the talking while you sit back and relax.</p>
+        </div>
+    </section>
+
+    <section class="feature-section-inverted"  >
+        <div class="feature-image">
+            <img src="../static/images/save.png" alt="Feature Image">
+        </div>
+        <div class="feature-text-inverted">
+            <h2 class="ftitle-inverted"><span class="highlight">Save</span> your hardwork in style!</h2>
+            <p class="fdesc-inverted">Export your text into a polished Word document, ready to share or print!</p>
+        </div>
+    </section>
+    
+    <section class="feature-section" >
+        <div class="feature-image">
+            <img src="../static/images/caption.png" alt="Feature Image">
+        </div>
+        <div class="feature-text">
+            <h2 class="ftitle">Instant<span class="highlight"> captions</span> for your pictures!</h2>
+            <p class="fdesc">Our tool generates cool captions for your pictures—helping you tell the story behind the image in a snap!</p>
+        </div>
+    </section>
+
+    <section class="feature-section-inverted" >
+        <div class="feature-image">
+            <img src="../static/images/summary.png" alt="Feature Image">
+        </div>
+        <div class="feature-text-inverted">
+            <h2 class="ftitle-inverted">Get to the point—short and sweet <span class="highlight">summaries </span>of long texts!</h2>
+            <p class="fdesc-inverted">Get a concise summary of any lengthy content so you can get the main points without the fluff.</p>
+        </div>
+    </section>
+
+    <section class="feature-section" >
+        <div class="feature-image">
+            <img src="../static/images/translate.png" alt="Feature Image">
+        </div>
+        <div class="feature-text">
+            <h2 class="ftitle">Break <span class="highlight">language </span>barries with a click!</h2>
+            <p class="fdesc">Translate your text into multiple languages instantly.</p>
+        </div>
+    </section>
+
+    <section class="feature-section-inverted" style=" margin-bottom: 70px;">
+        <div class="feature-image">
+            <img src="../static/images/extract.png" alt="Feature Image">
+        </div>
+        <div class="feature-text-inverted">
+            <h2 class="ftitle-inverted"><span class="highlight">See it</span> to believe it!</h2>
+            <p class="fdesc-inverted">We will extract the text while you sit back and relax.</p>
+        </div>
+    </section>
+    
+
+    <section class="s3" id="about">
+        <div class="card2">
+            <h1 class="os">Our Story</h1>
+            <br>
+            <p class="os-desc">
+                We are a team of passionate students working on the Visionary Text Converter. Our goal is to bridge the gap between handwritten content and digital text, making learning and accessibility easier for everyone.
+            </p>
+            <div class="stats">
+                <div class="stat-box">
+                    <h3 class="counter" data-target="3">0</h3>
+                    <p>Team Members</p>
+                </div>
+                <div class="stat-box">
+                    <h3 class="counter" data-target="8">0+</h3>
+                    <p>Features Developed</p>
+                </div>
+                <div class="stat-box">
+                    <h3 class="counter" data-target="100">0%</h3>
+                    <p>Dedication</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="team-info">
+                <h3>Team Members</h3>
+                <ul>
+                    <li>Spandan Kumkar - <a href="mailto:spandankumkar2006@gmail.com">spandankumkar2006@gmail.com</a></li>
+                    <li>Samruddhi Lakare - <a href="mailto:lakaresamruddhi1@gmail.com">lakaresamruddhi1@gmail.com</a></li>
+                    <li>Bhaktee Kalekar - <a href="mailto:bhakteekalekar4@gmail.com">bhakteekalekar4@gmail.com</a></li>
+                </ul>
+            </div>
+            <div class="project-info">
+                <h3>About the Project</h3>
+                <p>Project Name: <strong>Visionary Text Converter</strong></p>
+                <p>&copy; 2025 Visionary Text Converter. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="{{ url_for('faq_page') }}">FAQ</a></li>
+                    <li><a href="#help">Help</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Function to animate the counters
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; // Speed of counting animation (time per number increment)
+    
+        // Count up function
+        const countUp = (element, target) => {
+            let current = 0;
+            const increment = target / speed;
+    
+            const updateCounter = () => {
+                current += increment;
+                if (current >= target) {
+                    // Check for the type of value and append the correct symbol (+ or %)
+                    let finalValue = target;
+                    if (element.textContent.includes('+')) {
+                        finalValue = target + "+";
+                    } else if (element.textContent.includes('%')) {
+                        finalValue = target + "%";
+                    }
+                    element.textContent = finalValue;
+                } else {
+                    element.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                }
+            };
+    
+            updateCounter();
+        };
+    
+        // Intersection Observer to start animation when section is in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        countUp(counter, target);
+                    });
+                    observer.disconnect(); // Stop observing once the animation starts
+                }
+            });
+        }, { threshold: 0.5 });
+    
+        observer.observe(document.querySelector('#about'));
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Choose</title>
+    <style>
+        body {
+          background-color: #ffffff;
+        }
+    </style>
+    <!-- Updated FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h3 style="font-weight: bold; font-size: 1.5rem;">VTC</h3>
+            </div>
+           
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}#home">Home</a></li>
+                <li><a href="{{ url_for('index') }}#features">Features</a></li>
+                <li><a href="{{ url_for('index') }}#about">About us</a></li>
+                <li><a href="{{ url_for('faq_page') }}">FAQ</a></li>
+                <li><a href="help.html">Help</a></li>
+            </ul>
+        </nav>
+    </header>
+       
+    <br><br><br><br><br>
+    <h2 class="intro">Image to Insight: Decode, Describe, Summarize</h2>
+    <br>
+    <div class="container-wrapper">
+        <div class="choose-sec">
+            <i class="fa-solid fa-file-alt icon"></i> <!-- Updated icon class -->
+            <p>Uncover hidden words in your image with our magic!</p>
+            <a href="{{ url_for('upload_page') }}" class="button">Predict Text from Image</a>
+        </div>
+    
+        <div class="choose-sec">
+            <i class="fa-solid fa-image icon"></i> <!-- Updated icon class -->
+            <p>Transform your image into a creative description!</p>
+            <a href="{{ url_for('generate_page') }}" class="button">Describe Image Textually</a>
+        </div>
+    
+        <div class="choose-sec">
+            <i class="fa-solid fa-align-left icon"></i> <!-- Updated icon class -->
+            <p>Quick insights, no time wasted!</p>
+            <a href="{{ url_for('summarize_page') }}" class="button">Summarize the Text</a>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="team-info">
+                <h3>Team Members</h3>
+                <ul>
+                    
+                    <li>Spandan Kumkar - <a href="mailto:spandankumkar2006@gmail.com">spandankumkar2006@gmail.com</a></li>
+                    <li>Samruddhi Lakare - <a href="mailto:lakaresamruddhi1@gmail.com">lakaresamruddhi1@gmail.com</a></li>
+                    <li>Bhaktee Kalekar - <a href="mailto:bhakteekalekar4@gmail.com">bhakteekalekar4@gmail.com</a></li>
+                </ul>
+            </div>
+            <div class="project-info">
+                <h3>About the Project</h3>
+                <p style="color: rgb(255, 255, 255);">Project Name: <strong>Visionary Text Converter</strong></p>
+                <p style="color: rgb(255, 255, 255);">&copy; 2025 Visionary Text Converter. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="{{ url_for('index') }}#home">Home</a></li>
+                    <li><a href="{{ url_for('index') }}#features">Features</a></li>
+                    <li><a href="{{ url_for('index') }}#about">About us</a></li>
+                    <li><a href="{{ url_for('faq_page') }}">FAQ</a></li>
+                    <li><a href="help.html">Help</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

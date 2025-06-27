@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="../static/style1.css">
+</head>
+<body style="background-color: white;">
+    <nav class="navbar">
+        <div class="logo"><h3 style="font-weight: bold;">VTC</h3></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('index') }}#home">Home</a></li>
+            <li><a href="{{ url_for('index') }}#features">Features</a></li>
+            <li><a href="{{ url_for('index') }}#about">About us</a></li>
+            <li><a href="{{ url_for('faq_page') }}">FAQ</a></li>
+            <li><a href="help.html">Help</a></li>
+        </ul>
+      </nav>
+      <section class="dummy-gap">
+      </section>
+        <h1 class="text-display">Extracted text</h1>
+        {% if text %}
+            <p id="text" class="text">{{ text }}</p>
+            <button id="copyBtn" onclick="copyText()">
+                <!-- SVG Copy Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+                    <path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/>
+                </svg>
+            </button>
+
+            <div class="center-buttons">
+                <form action="/save" method="post">
+                    <input type="hidden" name="text" value="{{ text }}">
+                    <button type="submit" class="action-btn1">
+                        <!-- Save to Word SVG Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF">
+                            <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/>
+                        </svg>
+                        Save to Doc
+                    </button>
+                </form>
+    
+                <button onclick="readAloud1()" class="action-btn2">
+                    <!-- Read Aloud SVG Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF">
+                        <path d="M160-80q-33 0-56.5-23.5T80-160v-640q0-33 23.5-56.5T160-880h326l-80 80H160v640h440v-80h80v80q0 33-23.5 56.5T600-80H160Zm80-160v-80h280v80H240Zm0-120v-80h200v80H240Zm360 0L440-520H320v-200h120l160-160v520Zm80-122v-276q36 21 58 57t22 81q0 45-22 81t-58 57Zm0 172v-84q70-25 115-86.5T840-620q0-78-45-139.5T680-846v-84q104 27 172 112.5T920-620q0 112-68 197.5T680-310Z"/>
+                    </svg>
+                    Hear it
+                </button>
+            </div>
+        {% else %}
+            <p id="text" class="text">No text</p>
+        {% endif %}
+
+        <section class="dummy-gap-1">
+        </section>
+
+        <h2 class="translate">Translate</h2>
+        <form id="translateform" action="/translate" method="post" class="translate-form">
+            <input type="hidden" name="original_text" value="{{ text }}">
+            <label for="language" class="label">Select Language:</label>
+            <select name="language" id="language" class="dropdown">
+                <option value="es">Spanish</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="hi">Hindi</option>
+                <option value="zh-CN">Chinese (Simplified)</option>
+                <option value="ar">Arabic</option>
+                <option value="pt">Portuguese</option>
+<option value="ru">Russian</option>
+<option value="ja">Japanese</option>
+<option value="ko">Korean</option>
+<option value="vi">Vietnamese</option>
+<option value="it">Italian</option>
+<option value="tr">Turkish</option>
+<option value="fa">Persian</option>
+<option value="uk">Ukrainian</option>
+<option value="th">Thai</option>
+            </select>
+            <button type="submit" class="submit-btn">Translate</button>
+        </form>
+        
+        <h2 class="translated-label">Translation:</h2>
+        <p id="translatedText" class="translated-text">
+            {% if translated_text %}{{ translated_text }}{% else %}Not yet translated{% endif %}
+        </p>
+        
+        <div class="button-container">
+            <button onclick="readAloudTranslated()" class="read-aloud-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF">
+                    <path d="M160-80q-33 0-56.5-23.5T80-160v-640q0-33 23.5-56.5T160-880h326l-80 80H160v640h440v-80h80v80q0 33-23.5 56.5T600-80H160Zm80-160v-80h280v80H240Zm0-120v-80h200v80H240Zm360 0L440-520H320v-200h120l160-160v520Zm80-122v-276q36 21 58 57t22 81q0 45-22 81t-58 57Zm0 172v-84q70-25 115-86.5T840-620q0-78-45-139.5T680-846v-84q104 27 172 112.5T920-620q0 112-68 197.5T680-310Z"/>
+                </svg>
+                Read Aloud Translated
+            </button>
+        </div>
+        
+        
+    <script>
+        function readAloud1(){
+            const text = document.getElementById("text").innerText;
+            const say1 = new SpeechSynthesisUtterance(text);
+
+            say1.lang = "en-US";  // Default language for original text
+            say1.rate = 1;
+            say1.pitch = 1;
+
+            window.speechSynthesis.speak(say1);
+        }
+
+        function readAloudTranslated(){
+            const translatedText = document.getElementById("translatedText").innerText;
+            const selectedLang = document.getElementById("language").value;  
+            const say2 = new SpeechSynthesisUtterance(translatedText);
+
+            say2.lang = selectedLang;  
+            say2.rate = 1;
+            say2.pitch =1;
+
+            window.speechSynthesis.speak(say2);
+        }
+
+        function copyText() {
+            const textToCopy = document.getElementById("text").innerText;
+
+            // Create a temporary textarea to copy the text
+            const textArea = document.createElement("textarea");
+            textArea.value = textToCopy;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+
+            // Optional: You can show a success message or change icon color to indicate the copy was successful
+            alert("Text copied to clipboard!");
+        }
+    </script>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="team-info">
+                <h3>Team Members</h3>
+                <ul>
+                    <li>Spandan Kumkar - <a href="mailto:spandankumkar2006@gmail.com">spandankumkar2006@gmail.com</a></li>
+                    <li>Samruddhi Lakare - <a href="mailto:lakaresamruddhi1@gmail.com">lakaresamruddhi1@gmail.com</a></li>
+                    <li>Bhaktee Kalekar - <a href="mailto:bhakteekalekar4@gmail.com">bhakteekalekar4@gmail.com</a></li>
+                </ul>
+            </div>
+            <div class="project-info">
+                <h3>About the Project</h3>
+                <p style="color: rgb(255, 255, 255);">Project Name: <strong>Visionary Text Converter</strong></p>
+                <p style="color: rgb(255, 255, 255);">&copy; 2025 Visionary Text Converter. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul >
+                    <li><a href="{{ url_for('index') }}#home">Home</a></li>
+            <li><a href="{{ url_for('index') }}#features">Features</a></li>
+            <li><a href="{{ url_for('index') }}#about">About us</a></li>
+            <li><a href="{{ url_for('faq_page') }}">FAQ</a></li>
+            <li><a href="help.html">Help</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

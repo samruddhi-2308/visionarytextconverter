@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>FAQ</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h3 style="font-weight: bold; font-size: 1.5rem;">VTC</h3>
+            </div>
+           
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}#home">Home</a></li>
+                <li><a href="{{ url_for('index') }}#features">Features</a></li>
+                <li><a href="{{ url_for('index') }}#about">About us</a></li>
+                <li><a href="{{ url_for('faq_page') }}">FAQ</a></li>
+                <li><a href="help.html">Help</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="faq-container">
+        <h2>Frequently Asked Questions</h2>
+    
+        <div class="faq-item">
+            <button class="faq-question">What is this service about? <span class="icon">+</span></button>
+            <div class="faq-answer">
+                <p>This service helps you convert handwritten text into digital format.</p>
+            </div>
+        </div>
+    
+        <div class="faq-item">
+            <button class="faq-question">How accurate is the recognition? <span class="icon">+</span></button>
+            <div class="faq-answer">
+                <p>Our OCR model is trained on a vast dataset and provides industry-leading accuracy.</p>
+            </div>
+        </div>
+    
+        
+    
+        <div class="faq-item">
+            <button class="faq-question">Which file formats does it support? <span class="icon">+</span></button>
+            <div class="faq-answer">
+                <p>Our OCR system supports PNG, JPG, JPEG formats for text recognition.</p>
+            </div>
+        </div>
+    
+        <div class="faq-item">
+            <button class="faq-question">Do I need an internet connection to use this? <span class="icon">+</span></button>
+            <div class="faq-answer">
+                <p>Yes, an internet connection is required as the OCR processing is cloud-based.</p>
+            </div>
+        </div>
+    
+       
+    
+        <div class="faq-item">
+            <button class="faq-question">Is my data secure? <span class="icon">+</span></button>
+            <div class="faq-answer">
+                <p>Yes, we prioritize user privacy and do not store or share your data.</p>
+            </div>
+        </div>
+    
+        <div class="faq-item">
+            <button class="faq-question">How long does it take to process an image? <span class="icon">+</span></button>
+            <div class="faq-answer">
+                <p>Processing time depends on the image size but usually takes a few seconds.</p>
+            </div>
+        </div>
+    
+        <div class="faq-item">
+            <button class="faq-question">Can it recognize multiple languages? <span class="icon">+</span></button>
+            <div class="faq-answer">
+                <p>Yes, our OCR system supports multiple languages, including English, Spanish, and more.</p>
+            </div>
+        </div>
+    
+    </div>
+    
+        
+        <script>
+            document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+        const faqItem = button.parentElement;
+        faqItem.classList.toggle('active');
+
+        document.querySelectorAll('.faq-item').forEach(item => {
+            if (item !== faqItem) {
+                item.classList.remove('active');
+            }
+        });
+    });
+});
+        </script>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="team-info">
+                <h3>Team Members</h3>
+                <ul>
+                    <li>Spandan Kumkar - <a href="mailto:spandankumkar2006@gmail.com">spandankumkar2006@gmail.com</a></li>
+                    <li>Samruddhi Lakare - <a href="mailto:lakaresamruddhi1@gmail.com">lakaresamruddhi1@gmail.com</a></li>
+                    <li>Bhaktee Kalekar - <a href="mailto:bhakteekalekar4@gmail.com">bhakteekalekar4@gmail.com</a></li>
+                </ul>
+            </div>
+            <div class="project-info">
+                <h3>About the Project</h3>
+                <p style="color: rgb(255, 255, 255);">Project Name: <strong>Visionary Text Converter</strong></p>
+                <p style="color: rgb(255, 255, 255);">&copy; 2025 Visionary Text Converter. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul >
+                    <li><a href="{{ url_for('index') }}#home">Home</a></li>
+            <li><a href="{{ url_for('index') }}#features">Features</a></li>
+            <li><a href="{{ url_for('index') }}#about">About us</a></li>
+            <li><a href="{{ url_for('faq_page') }}">FAQ</a></li>
+            <li><a href="help.html">Help</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

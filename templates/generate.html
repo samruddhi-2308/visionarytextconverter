@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style1.css">
+    <title>Generate</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h3 style="font-weight: bold; font-size: 1.5rem;">VTC</h3>
+            </div>
+           
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}#home">Home</a></li>
+                <li><a href="{{ url_for('index') }}#features">Features</a></li>
+                <li><a href="{{ url_for('index') }}#about">About us</a></li>
+                <li><a href="{{ url_for('faq_page') }}">FAQ</a></li>
+                <li><a href="help.html">Help</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="fileupload">
+        <h1 class="extract-title">Transform your images into words</h1>
+        <div class="container">
+          <form id="uploadForm" action="/generate_page" method="post" enctype="multipart/form-data">
+            <div id="dropZone" class="drop-zone">
+              <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000">
+                <path d="M452-202h60v-201l82 82 42-42-156-152-154 154 42 42 84-84v201ZM220-80q-24 0-42-18t-18-42v-680q0-24 18-42t42-18h361l219 219v521q0 24-18 42t-42 18H220Zm331-554v-186H220v680h520v-494H551ZM220-820v186-186 680-680Z"/>
+              </svg>
+              <p>Drag and drop or choose an image</p>
+              <input type="file" name="file" id="imageInput" accept="image/*" onchange="handleImageUpload(event)">
+              <img id="imagePreview" alt="Image Preview" style="display: none;" />
+            </div>
+            <div class="buttons">
+              <button type="submit" id="uploadButton" class="upload" disabled>Upload</button>
+              <button type="button" id="deleteButton" onclick="resetPreview()">Delete</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="img-container">
+            <div class="card1">
+                <p style="font-weight: bold;">Description</p>
+                <!-- Display the generated text here -->
+                <p id="imageSummary" class="text-gen">{{ text }}</p>
+            </div>
+        </div>
+      </section>
+         
+        
+           
+            
+
+       
+          
+          <script>
+            const imageInput = document.getElementById("imageInput");
+            const imagePreview = document.getElementById("imagePreview");
+            const uploadButton = document.getElementById("uploadButton");
+            const dropZone = document.getElementById("dropZone");
+    
+            function handleImageUpload(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        imagePreview.src = e.target.result;
+                        imagePreview.style.display = "block";
+                        uploadButton.disabled = false;
+                     };
+                    reader.readAsDataURL(file);
+                }
+            }
+    
+            function resetPreview() {
+                imagePreview.src = "";
+                imagePreview.style.display = "none";
+                 imageInput.value = "";
+                 uploadButton.disabled = true;
+            }
+    
+            dropZone.addEventListener("dragover", (event) => {
+                event.preventDefault();
+                dropZone.classList.add("dragging");
+            });
+    
+            dropZone.addEventListener("dragleave", () => {
+                dropZone.classList.remove("dragging");
+            });
+    
+            dropZone.addEventListener("drop", (event) => {
+                event.preventDefault();
+                dropZone.classList.remove("dragging");
+                const file = event.dataTransfer.files[0];
+                if (file) {
+                    imageInput.files = event.dataTransfer.files;
+                    handleImageUpload({ target: { files: [file] } });
+                }
+                });
+    
+          </script> 
+          
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="team-info">
+                <h3>Team Members</h3>
+                <ul>
+                    <li>Spandan Kumkar - <a href="mailto:spandankumkar2006@gmail.com">spandankumkar2006@gmail.com</a></li>
+                    <li>Samruddhi Lakare - <a href="mailto:lakaresamruddhi1@gmail.com">lakaresamruddhi1@gmail.com</a></li>
+                    <li>Bhaktee Kalekar - <a href="mailto:bhakteekalekar4@gmail.com">bhakteekalekar4@gmail.com</a></li>
+                </ul>
+            </div>
+            <div class="project-info">
+                <h3>About the Project</h3>
+                <p style="color: rgb(255, 255, 255);">Project Name: <strong>Visionary Text Converter</strong></p>
+                <p style="color: rgb(255, 255, 255);">&copy; 2025 Visionary Text Converter. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul >
+                    <li><a href="{{ url_for('index') }}#home">Home</a></li>
+            <li><a href="{{ url_for('index') }}#features">Features</a></li>
+            <li><a href="{{ url_for('index') }}#about">About us</a></li>
+            <li><a href="{{ url_for('faq_page') }}">FAQ</a></li>
+            <li><a href="help.html">Help</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

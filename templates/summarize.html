@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=content_copy" />
+
+    <title>Summarize</title>
+    <style>
+        body{
+            background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h3 style="font-weight: bold; font-size: 1.5rem;">VTC</h3>
+            </div>
+           
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}#home">Home</a></li>
+                <li><a href="{{ url_for('index') }}#features">Features</a></li>
+                <li><a href="{{ url_for('index') }}#about">About us</a></li>
+                <li><a href="{{ url_for('faq_page') }}">FAQ</a></li>
+                <li><a href="help.html">Help</a></li>
+            </ul>
+        </nav>
+    </header>
+       
+        <br><br><br>
+        <h2 class="intro" style="margin: 10px;">Summarize Text: Get to the Point in Seconds</h2>
+<br>
+<p class="center-text" style="margin: 10px;">Upload your text, and we'll craft a concise, impactful summary that highlights the key points. Save time by focusing on what matters, and skip the fluff!</p>
+
+<div class="summary-container">
+    <div class="summary-section1">
+        <form id="uploadForm" action="{{ url_for('summarize_page') }}" method="post">
+            <textarea id="inputText" name="inputText" placeholder="Paste or type your text here..."></textarea>
+            <button class="summary-button" type="submit" id="summarize">Summarize</button>
+        </form>
+    </div>
+
+    <br>
+
+    <div class="summary-section1">
+        <div class="summary-header">
+            <p class="summary-title">Summary:</p>
+            <button class="copy-button" onclick="copyText()">
+                <span class="material-symbols-outlined">content_copy</span>
+            </button>
+        </div>
+        <p id="summarizedText" class="text-gen">
+            {% if result %}
+                {{ result }}
+            {% else %}
+                Your summary will appear here...
+            {% endif %}
+        </p>
+    </div>
+</div>
+    <script>
+        document.getElementById('uploadForm').onsubmit = function(event) {
+            var inputText = document.getElementById('inputText').value.trim();
+            if (inputText === "") {
+                alert("Please enter text to summarize!");
+                event.preventDefault(); // Prevent form submission
+            } else {
+                // Optional: Show a loading state if you want to enhance the user experience
+                document.getElementById('summarize').innerText = 'Summarizing...';
+            }
+        };
+
+       
+    
+        function copyText() {
+    var text = document.getElementById("summarizedText").innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        alert("Copied to clipboard!");
+    });
+}
+
+
+    </script>
+    
+    <br> <br>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="team-info">
+                <h3>Team Members</h3>
+                <ul>
+                    <li>Spandan Kumkar - <a href="mailto:spandankumkar2006@gmail.com">spandankumkar2006@gmail.com</a></li>
+                    <li>Samruddhi Lakare - <a href="mailto:lakaresamruddhi1@gmail.com">lakaresamruddhi1@gmail.com</a></li>
+                    <li>Bhaktee Kalekar - <a href="mailto:bhakteekalekar4@gmail.com">bhakteekalekar4@gmail.com</a></li>
+                </ul>
+            </div>
+            <div class="project-info">
+                <h3>About the Project</h3>
+                <p style="color: rgb(255, 255, 255);">Project Name: <strong>Visionary Text Converter</strong></p>
+                <p style="color: rgb(255, 255, 255);">&copy; 2025 Visionary Text Converter. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul >
+                    <li><a href="{{ url_for('index') }}#home">Home</a></li>
+            <li><a href="{{ url_for('index') }}#features">Features</a></li>
+            <li><a href="{{ url_for('index') }}#about">About us</a></li>
+            <li><a href="{{ url_for('faq_page') }}">FAQ</a></li>
+            <li><a href="help.html">Help</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

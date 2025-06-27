@@ -1,0 +1,897 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #ffffff; /* Light background for the body */
+    align-items: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: backdrop-filter 0.3s ease;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo img {
+    height: 60px;
+    width: auto;
+    margin-right: 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Adjusted gap to 20px */
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.nav-links li {
+    font-size: 16px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #0071e3;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 10px; /* Reduced gap to 10px for mobile */
+        margin-top: 0;
+        justify-content: center; /* Center the links on mobile */
+    }
+
+    .nav-links li {
+        font-size: 14px; /* Slightly smaller font size for mobile */
+    }
+
+    .nav-links li a {
+        color: #0071e3;
+    }
+}
+
+.home {
+    margin-top: 70px;
+    padding-top: 30px;
+    padding-bottom: 90px;
+    background-color: #000;
+    margin-bottom: 70px;
+}
+
+.main-title {
+    padding-top: 5%;
+    align-items: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 56px;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.main-title span {
+    display: inline-block;
+    opacity: 0;
+    filter: blur(4px);
+    animation: fadeInBlur 1s ease forwards;
+}
+
+/* Add delay to each word */
+.main-title span:nth-child(1) {
+    animation-delay: 0.2s;
+}
+.main-title span:nth-child(2) {
+    animation-delay: 0.4s;
+}
+.main-title span:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* Keyframes for the fade-in and blur effect */
+@keyframes fadeInBlur {
+    0% {
+        opacity: 0;
+        filter: blur(4px);
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0);
+    }
+}
+
+.intro {
+    font-size: 35px;
+    font-weight: bold;
+    background: linear-gradient(70deg, #217bfe, #078efb, #ac87eb, #ee4d5d);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    margin-top: 2%;
+}
+
+@media (max-width: 768px) {
+    .main-title{
+        font-size: 30px;
+    }
+}
+@media (max-width: 768px) {
+    .intro {
+        font-size: 20px;
+    }
+}
+.cover-image {
+    width: 100%;
+    height: auto;
+    object-fit: scale-down;
+    max-height: 500px; /* Adjust based on your design */
+    display: block;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+@media (max-width: 768px) {
+    .cover-image {
+        max-height: 250px;
+        margin-left: 5px; /* Adjust for smaller screens */
+    }
+}
+
+.intro-text {
+    background-color: rgb(0, 0, 0); /* Card background color */
+    padding: 30px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    width: 90%; /* Increased width */
+    max-width: 800px; /* Increased max width */
+    text-align: left; /* Align text inside the card */
+    margin: 2% auto; /* Center horizontally with spacing */
+    z-index: 2; /* Ensure card stacks above background */
+    position: relative; /* Default stacking context */
+}
+@media (max-width: 768px) {
+    .intro-text{
+        font-size: 15px;
+    }
+}
+
+/* Paragraph styling */
+.para1 {
+    font-size: 18px;
+    color: #ffffff; /* Dark text color */
+    line-height: 1.6;
+    margin: 0;
+    text-align: center;
+}
+
+.start {
+    margin-top: 30px;
+    width: 18%;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    margin-left: 41%;
+}
+
+.start:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.start:active {
+    color: #000
+}
+
+.start:active:after {
+    background: transparent;
+}
+
+.start:hover:before {
+    opacity: 1;
+}
+
+.start:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 400% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.start a {
+    text-decoration: none; /* Remove the underline */
+    color: inherit; /* Inherit the color from the button */
+    display: block; /* Ensure the link takes up the entire button */
+    height: 100%; /* Make the link fill the entire button */
+    width: 100%; /* Make the link fill the entire button */
+    text-align: center; /* Center the text inside the link */
+    line-height: 50px; /* Vertically center the text */
+}
+
+/* Feature Section */
+.feature-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    border-radius: 30px;
+    margin: 20px auto;
+    max-width: 1200px;
+    height: 80vh;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    
+}
+
+.feature-section-inverted {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    border-radius: 30px;
+    margin: 20px auto;
+    max-width: 1200px;
+    height: 80vh;
+    flex-direction: row-reverse;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.feature-image img {
+    width: 500px;
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.feature-text,
+.feature-text-inverted {
+    flex: 1;
+    max-width: 500px;
+}
+
+.ftitle,
+.ftitle-inverted {
+    font-size: 35px;
+    color: #111;
+}
+
+.fdesc,
+.fdesc-inverted {
+    font-size: 18px;
+    color: #2a2929;
+    margin-top: 10px;
+}
+
+.highlight {
+    font-size: 40px;
+    font-weight: bold;
+    background: linear-gradient(70deg, #217bfe, #078efb, #ac87eb, #ee4d5d);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+    .feature-section, 
+    .feature-section-inverted {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+    }
+
+    .feature-text,
+    .feature-text-inverted {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .cover-image {
+        max-height: 250px;
+    }
+
+    .start {
+        width: 60%;
+        margin-left: 20%;
+    }
+}
+
+/* About Section */
+.s3 {
+    padding: 5rem 1rem;
+    background: linear-gradient(70deg, #F78888, rgb(255, 225, 225), #5DA2D5);
+}
+
+.card2 {
+    background-color: #000;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    margin: 2% auto;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.os {
+    color: wheat;
+    font-size: 24px;
+}
+
+.os-desc {
+    font-size: 16px;
+    color: whitesmoke;
+    margin-bottom: 2rem;
+}
+
+/* Container for the stats */
+.stats {
+    display: grid;
+    /* Create as many columns as can fit, each at least 200px wide, 
+       and shrink/grow to fill remaining space. */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;               /* Space between the boxes */
+    max-width: 900px;        /* Limit overall width for better centering */
+    margin: 0 auto;          /* Center the grid container in the page */
+    padding: 1rem;           /* Optional padding */
+}
+
+.stat-box {
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+  
+  /* Make them stack on smaller screens */
+  @media (max-width: 600px) {
+    .stat-box {
+      width: 100%;               /* Each box takes full width, stacked */
+      margin: 10px 0;
+    }
+  }
+  
+.stat-box h3 {
+    font-size: 2rem;
+    color: #3E2723;
+}
+
+.stat-box p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.counter {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffda79;
+    transition: all 1s ease-out;
+}
+
+@media (max-width: 768px) {
+    .stats {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-box {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+
+
+/* General Footer Styles */
+.footer {
+    background: hsl(210, 69%, 19%);  /* Dark background */
+    color: #ffffff;  /* White text */
+    padding: 40px 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer h3 {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+.footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer li {
+    margin: 15px 0;  /* Increased margin for more spacing */
+}
+
+.footer a {
+    color: #ffffff;  /* White links */
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #3498db;  /* Blue hover effect */
+}
+
+.footer .team-info, .footer .project-info, .footer .footer-links {
+    width: 25%;  /* Reduced width to prevent crowding */
+}
+
+.footer .team-info ul li,
+.footer .footer-links ul li {
+    margin-bottom: 15px;  /* Increased margin between items */
+}
+
+.footer .footer-links ul li a {
+    font-size: 1rem;  /* Increased font size for readability */
+}
+
+.footer .footer-links ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Styling for project info */
+.project-info p {
+    margin: 10px 0;  /* Added more space between lines */
+    color: #ffffff;  /* Ensure white text in project info */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer .team-info,
+    .footer .project-info,
+    .footer .footer-links {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+}
+
+
+/*faq page sathi*/
+.faq-container {
+    
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.faq-container h2 {
+    margin-top: 80px;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #07417e;
+}
+
+.faq-item {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 18px;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease-in-out;
+}
+
+.faq-question:hover {
+    color: #007BFF;
+}
+
+.icon {
+    font-size: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.faq-answer p {
+    padding: 12px;
+    margin: 0;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    opacity: 1;
+}
+
+.faq-item.active .icon {
+    transform: rotate(45deg);
+}
+
+/* Container to center all sections */
+.container-wrapper {
+    display: flex;
+    justify-content: center; /* Centers the sections */
+    align-items: center; /* Aligns vertically */
+    gap: 20px; /* Adds space between the sections */
+    max-width: 1000px; /* Limits width for a balanced layout */
+    margin: 50px auto; /* Centers on the page */
+    padding: 20px;
+}
+
+/* Individual Sections */
+.choose-sec {
+    flex: 1;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 280px; /* Prevents sections from being too small */
+    max-width: 320px; /* Ensures consistency */
+}
+
+/* Hover Effect */
+.choose-sec:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Text Styling */
+.choose-sec p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* FontAwesome Icons */
+.icon {
+    font-size: 45px;
+    color: #07417e;
+    margin-bottom: 15px;
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    padding: 10px 13px 10px 13px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Hover */
+.button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive: Stack Cards on Smaller Screens */
+@media (max-width: 900px) {
+    .container-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .choose-sec {
+        width: 90%;
+    }
+}
+
+/*summarize*/
+/* General Styles */
+.center-text {
+    color: #555;
+    font-size: 16px;
+    margin: auto;
+    text-align: center;
+    font-weight: bold;
+}
+
+.summary-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    padding: 0 20px; /* Added padding for mobile */
+}
+
+.summary-section1 {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    text-align: center;
+    border: 2px;
+    transition: 0.3s ease-in-out;
+}
+
+.summary-section1:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+p {
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+}
+
+#inputText {
+    width: 100%;
+    height: 120px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 14px;
+    resize: none;
+    outline: none;
+    background: #fafafa;
+    transition: 0.3s;
+}
+
+#inputText:focus {
+    border-color: #007bff;
+    background: #fff;
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.2);
+}
+
+.summary-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    margin-top: 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.summary-button:hover {
+    background-color: #0056b3;
+}
+
+.summary-title{
+    font-weight: bold;
+}
+
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.copy-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.copy-button .material-symbols-outlined {
+    font-size: 18px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.copy-button:hover .material-symbols-outlined {
+    color: #007aff;
+}
+
+.text-gen{
+    margin: 30px 30px 30px 30px;
+    text-align: center;
+    font-family:monospace;
+    font-size: 1rem;
+    opacity: 0; /* Initial state: invisible */
+    animation: blurFadeIn 1.5s ease-out forwards; /* Apply animation */
+}
+
+@keyframes blurFadeIn {
+    0% {
+        opacity: 0; /* Fully invisible */
+        filter: blur(10px); /* Apply strong blur */
+        transform: translateY(20px); /* Slight downward shift */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        filter: blur(0); /* Remove blur */
+        transform: translateY(0); /* Reset position */
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .summary-container {
+        margin-top: 20px;
+        width: 100%; /* Make the container responsive */
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .summary-section1 {
+        width: 100%; /* Full width on smaller screens */
+        padding: 15px; /* Reduce padding on small screens */
+        margin: 10px; /* Center align the section */
+    }
+
+    #inputText {
+        height: 100px; /* Make the text area smaller on mobile */
+        font-size: 14px; /* Adjust text size */
+    }
+
+    .summary-button {
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+
+    .summary-header {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 10px;
+    }
+
+    .copy-button {
+        margin-top: 10px;
+        display: block;
+        align-self: flex-end;
+    }
+
+    .summary-title {
+        font-size: 18px; /* Adjust title font size for mobile */
+        margin-bottom: 10px;
+    }
+
+    .text-gen {
+        margin: 20px;
+        font-size: 14px;
+    }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 480px) {
+    .summary-container {
+        margin-top: 10px;
+        padding: 0 10px; /* Added padding adjustment for very small screens */
+        margin: 5px;
+    }
+
+    .summary-section1 {
+        width: 100%;
+        padding: 10px;
+        margin: 5px;
+    }
+
+    #inputText {
+        height: 80px;
+        font-size: 12px;
+    }
+
+    .summary-button {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+
+    .summary-title {
+        font-size: 16px;
+    }
+
+    .text-gen {
+        margin: 15px;
+        font-size: 12px;
+    }
+}
